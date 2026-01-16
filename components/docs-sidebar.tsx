@@ -127,7 +127,7 @@ function NavItemComponent({
           </div>
 
           <CollapsibleContent className='ml-3 pl-3 border-l border-zinc-200 dark:border-zinc-700 space-y-1'>
-            {item.items.map((subItem) => (
+            {item.items?.map((subItem) => (
               <Link
                 key={subItem.href}
                 href={subItem.href}

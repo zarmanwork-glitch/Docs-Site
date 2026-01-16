@@ -27,7 +27,9 @@ import {
   Network,
   Folder,
   Server,
+  PanelLeftIcon,
 } from 'lucide-react';
+import { useState } from 'react';
 import {
   Sidebar,
   SidebarContent,
@@ -41,6 +43,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from '@/components/ui/sidebar';
 import {
   Collapsible,
@@ -49,6 +52,12 @@ import {
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import docsNav from '@/docs-nav.json';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface NavItem {
   title: string;
@@ -108,6 +117,8 @@ function getIconForItem(title: string, href: string) {
 export function AppSidebar() {
   const pathname = usePathname();
   const navigation = docsNav.navigation as NavSection[];
+  const { state, toggleSidebar } = useSidebar();
+  const isCollapsed = state === 'collapsed';
 
   // Filter navigation based on current path
   const filteredNavigation = navigation.filter((section) =>
@@ -119,10 +130,22 @@ export function AppSidebar() {
     filteredNavigation.length > 0 ? filteredNavigation : navigation;
 
   return (
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Documentation</SidebarGroupLabel>
+    <Sidebar collapsible='icon'>
+      <SidebarContent className='gap-0'>
+        <SidebarGroup className='py-0'>
+          <div className='flex items-center justify-between px-2 py-2.5 group-data-[collapsible=icon]:justify-center'>
+            <SidebarGroupLabel className='group/label text-xs font-medium text-sidebar-foreground/70 m-0 group-data-[collapsible=icon]:hidden'>
+              Documentation
+            </SidebarGroupLabel>
+            <button
+              onClick={toggleSidebar}
+              className='inline-flex items-center justify-center w-6 h-6 rounded-md hover:bg-sidebar-accent/50 transition-colors cursor-pointer group-data-[collapsible=icon]:w-full'
+              aria-label='Toggle sidebar'
+              title='Toggle sidebar'
+            >
+              <PanelLeftIcon className='h-4 w-4' />
+            </button>
+          </div>
           <SidebarGroupContent>
             <SidebarMenu>
               {displayNavigation.map((section) => (
@@ -133,12 +156,15 @@ export function AppSidebar() {
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
-                      <SidebarMenuButton className='cursor-pointer'>
+                      <SidebarMenuButton
+                        className='cursor-pointer data-[state=open]:bg-sidebar-accent/50 hover:bg-sidebar-accent/50 transition-colors'
+                        tooltip={isCollapsed ? section.title : undefined}
+                      >
                         {section.icon === 'react' && <ReactIcon />}
                         {section.icon === 'javascript' && <JavaScriptIcon />}
                         {section.icon === 'nodejs' && <NodeIcon />}
                         <span>{section.title}</span>
-                        <ChevronDown className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180' />
+                        <ChevronDown className='ml-auto h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180' />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
@@ -148,6 +174,7 @@ export function AppSidebar() {
                             key={item.href}
                             item={item}
                             pathname={pathname}
+                            isCollapsed={isCollapsed}
                           />
                         ))}
                       </SidebarMenuSub>
@@ -166,14 +193,18 @@ export function AppSidebar() {
 function NavItemComponent({
   item,
   pathname,
+  isCollapsed,
 }: {
   item: NavItem;
   pathname: string;
+  isCollapsed: boolean;
 }) {
   const hasChildren = item.items && item.items.length > 0;
   const isActive =
     pathname === item.href ||
     (hasChildren && item.items?.some((child) => pathname === child.href));
+
+  const Icon = getIconForItem(item.title, item.href);
 
   if (hasChildren) {
     return (
@@ -185,40 +216,80 @@ function NavItemComponent({
           <CollapsibleTrigger asChild>
             <SidebarMenuSubButton
               isActive={pathname === item.href}
-              className='cursor-pointer justify-between'
+              className='cursor-pointer justify-between data-[state=open]:bg-sidebar-accent/50 hover:bg-sidebar-accent/30 transition-colors'
             >
-              <Link
-                href={item.href}
-                className='flex items-center gap-2'
-                onClick={(e) => e.stopPropagation()}
-              >
-                {(() => {
-                  const Icon = getIconForItem(item.title, item.href);
-                  return <Icon className='h-4 w-4' />;
-                })()}
-                <span>{item.title}</span>
-              </Link>
-              <ChevronDown className='h-4 w-4 transition-transform duration-200 group-data-[state=open]/nested:rotate-180' />
+              {!isCollapsed && (
+                <Link
+                  href={item.href}
+                  className='flex items-center gap-2 flex-1'
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Icon className='h-4 w-4 flex-shrink-0' />
+                  <span className='truncate'>{item.title}</span>
+                </Link>
+              )}
+              {isCollapsed && (
+                <div className='flex items-center justify-center w-full'>
+                  <Icon className='h-4 w-4 flex-shrink-0' />
+                </div>
+              )}
+              {!isCollapsed && (
+                <ChevronDown className='h-4 w-4 transition-transform duration-200 group-data-[state=open]/nested:rotate-180 flex-shrink-0' />
+              )}
             </SidebarMenuSubButton>
           </CollapsibleTrigger>
-          <CollapsibleContent>
-            <SidebarMenuSub className='ml-2 border-l border-sidebar-border pl-2'>
-              {item.items.map((subItem) => (
-                <SidebarMenuSubItem key={subItem.href}>
-                  <SidebarMenuSubButton
-                    asChild
-                    isActive={pathname === subItem.href}
-                  >
-                    <Link href={subItem.href}>
-                      <span>{subItem.title}</span>
-                    </Link>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              ))}
-            </SidebarMenuSub>
-          </CollapsibleContent>
+          {!isCollapsed && (
+            <CollapsibleContent>
+              <SidebarMenuSub className='ml-2 border-l border-sidebar-border pl-2'>
+                {item.items?.map((subItem) => (
+                  <SidebarMenuSubItem key={subItem.href}>
+                    <SidebarMenuSubButton
+                      asChild
+                      isActive={pathname === subItem.href}
+                      className='text-xs hover:bg-sidebar-accent/30 transition-colors'
+                    >
+                      <Link href={subItem.href}>
+                        <span className='truncate'>{subItem.title}</span>
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                ))}
+              </SidebarMenuSub>
+            </CollapsibleContent>
+          )}
         </SidebarMenuSubItem>
       </Collapsible>
+    );
+  }
+
+  if (isCollapsed) {
+    return (
+      <SidebarMenuSubItem>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <SidebarMenuSubButton
+                asChild
+                isActive={pathname === item.href}
+                className='hover:bg-sidebar-accent/30 transition-colors justify-center'
+              >
+                <Link
+                  href={item.href}
+                  className='flex items-center justify-center'
+                >
+                  <Icon className='h-4 w-4' />
+                </Link>
+              </SidebarMenuSubButton>
+            </TooltipTrigger>
+            <TooltipContent
+              side='right'
+              className='ml-2'
+            >
+              {item.title}
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </SidebarMenuSubItem>
     );
   }
 
@@ -227,16 +298,14 @@ function NavItemComponent({
       <SidebarMenuSubButton
         asChild
         isActive={pathname === item.href}
+        className='hover:bg-sidebar-accent/30 transition-colors'
       >
         <Link
           href={item.href}
           className='flex items-center gap-2'
         >
-          {(() => {
-            const Icon = getIconForItem(item.title, item.href);
-            return <Icon className='h-4 w-4' />;
-          })()}
-          <span>{item.title}</span>
+          <Icon className='h-4 w-4 flex-shrink-0' />
+          <span className='truncate'>{item.title}</span>
         </Link>
       </SidebarMenuSubButton>
     </SidebarMenuSubItem>

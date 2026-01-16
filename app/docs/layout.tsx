@@ -15,7 +15,7 @@ function DocsNav() {
     <nav className='border-b sticky top-0 z-50 bg-background backdrop-blur-sm'>
       <div className='flex items-center justify-between h-16 px-4 sm:px-6'>
         <div className='flex items-center gap-2'>
-          <SidebarTrigger className='cursor-pointer' />
+          <SidebarTrigger className='md:hidden cursor-pointer' />
           <Link
             href='/'
             className='font-bold text-xl'

@@ -45,15 +45,9 @@ export default function ReactGettingStartedPage() {
             The easiest way to get started with React is using Create React App
             or a framework like Next.js:
           </p>
-          <CodeBlock>
-            npx create-react-app my-app
-            {`
-`}
-            cd my-app
-            {`
-`}
-            npm start
-          </CodeBlock>
+          <CodeBlock>{`npx create-react-app my-app
+cd my-app
+npm start`}</CodeBlock>
         </section>
       </div>
     </div>

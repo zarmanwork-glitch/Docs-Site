@@ -44,28 +44,13 @@ export default function NodeGettingStartedPage() {
             Download and install Node.js from the official website or use a
             version manager like nvm:
           </p>
-          <CodeBlock>
-            # Using nvm (recommended)
-            {`
-`}
-            curl -o-
-            https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh |
-            bash
-            {`
-`}
-            nvm install node
-            {`
-`}
-            {`
-`}
-            # Verify installation
-            {`
-`}
-            node --version
-            {`
-`}
-            npm --version
-          </CodeBlock>
+          <CodeBlock>{`# Using nvm (recommended)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install node
+
+# Verify installation
+node --version
+npm --version`}</CodeBlock>
         </section>
 
         <section className='space-y-4'>

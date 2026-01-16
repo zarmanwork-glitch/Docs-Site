@@ -62,6 +62,14 @@
         {
           "title": "Vite Build Tool",
           "href": "/docs/react/vite"
+        },
+        {
+          "title": "Create React App",
+          "href": "/docs/react/create-react-app"
+        },
+        {
+          "title": "esbuild",
+          "href": "/docs/react/esbuild"
         }
       ]
     },
@@ -85,6 +93,10 @@
         {
           "title": "Async Programming",
           "href": "/docs/javascript/async-programming"
+        },
+        {
+          "title": "Advanced Concepts",
+          "href": "/docs/javascript/advanced"
         }
       ]
     },
