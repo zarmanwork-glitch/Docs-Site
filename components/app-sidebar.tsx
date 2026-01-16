@@ -215,27 +215,29 @@ function NavItemComponent({
         <SidebarMenuSubItem>
           <CollapsibleTrigger asChild>
             <SidebarMenuSubButton
+              asChild
               isActive={pathname === item.href}
               className='cursor-pointer justify-between data-[state=open]:bg-sidebar-accent/50 hover:bg-sidebar-accent/30 transition-colors'
             >
-              {!isCollapsed && (
-                <Link
-                  href={item.href}
-                  className='flex items-center gap-2 flex-1'
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Icon className='h-4 w-4 flex-shrink-0' />
-                  <span className='truncate'>{item.title}</span>
-                </Link>
-              )}
-              {isCollapsed && (
-                <div className='flex items-center justify-center w-full'>
-                  <Icon className='h-4 w-4 flex-shrink-0' />
-                </div>
-              )}
-              {!isCollapsed && (
-                <ChevronDown className='h-4 w-4 transition-transform duration-200 group-data-[state=open]/nested:rotate-180 flex-shrink-0' />
-              )}
+              <Link
+                href={item.href}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {!isCollapsed && (
+                  <div className='flex items-center gap-2 flex-1'>
+                    <Icon className='h-4 w-4 flex-shrink-0' />
+                    <span className='truncate'>{item.title}</span>
+                  </div>
+                )}
+                {isCollapsed && (
+                  <div className='flex items-center justify-center w-full'>
+                    <Icon className='h-4 w-4 flex-shrink-0' />
+                  </div>
+                )}
+                {!isCollapsed && (
+                  <ChevronDown className='h-4 w-4 transition-transform duration-200 group-data-[state=open]/nested:rotate-180 flex-shrink-0' />
+                )}
+              </Link>
             </SidebarMenuSubButton>
           </CollapsibleTrigger>
           {!isCollapsed && (

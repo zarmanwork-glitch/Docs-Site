@@ -1,0 +1,329 @@
+{
+  "general topics": [
+    {
+      "__EMPTY": "react, react-dom, react-dom/client, react-dom/server"
+    },
+    {
+      "__EMPTY_1": "Feature",
+      "__EMPTY_2": "react( the core)",
+      "__EMPTY_3": "react-dom",
+      "__EMPTY_4": "react-dom/client",
+      "__EMPTY_5": "react-dom/server"
+    },
+    {
+      "__EMPTY_1": "Main Environment",
+      "__EMPTY_2": "The Brain (Platform Agnostic)",
+      "__EMPTY_3": "Universal / Legacy",
+      "__EMPTY_4": "Browser (Client)",
+      "__EMPTY_5": "Node.js (Server)"
+    },
+    {
+      "__EMPTY_1": "Primary Use",
+      "__EMPTY_2": "Managing State, Hooks, & Logic",
+      "__EMPTY_3": "Core DOM utilities",
+      "__EMPTY_4": "Rendering & Hydration",
+      "__EMPTY_5": "Generating HTML for SEO"
+    },
+    {
+      "__EMPTY_1": "Key Function 1",
+      "__EMPTY_2": "useState / useReducer",
+      "__EMPTY_3": "findDOMNode (Legacy)",
+      "__EMPTY_4": "createRoot (Initial Render)",
+      "__EMPTY_5": "renderToString (Static HTML)"
+    },
+    {
+      "__EMPTY_1": "Key Function 2",
+      "__EMPTY_2": "useEffect / useMemo",
+      "__EMPTY_3": "unmountComponentAtNode",
+      "__EMPTY_4": "hydrateRoot (The \"Handover\")",
+      "__EMPTY_5": "renderToPipeableStream"
+    },
+    {
+      "__EMPTY_1": "Interactivity",
+      "__EMPTY_2": "Defines the logic of \"what happens\"",
+      "__EMPTY_3": "enables react time activity",
+      "__EMPTY_4": "Enables clicks, state, events",
+      "__EMPTY_5": "Produces static non-active UI"
+    },
+    {
+      "__EMPTY_1": "Tree Shaking",
+      "__EMPTY_2": "Always required in the bundle",
+      "__EMPTY_3": "Bundled by default",
+      "__EMPTY_4": "Used in Vite production builds",
+      "__EMPTY_5": "Stripped from client bundles"
+    },
+    {
+      "__EMPTY_1": "Code Example",
+      "__EMPTY_2": "const [count, setCount] = useState(0)",
+      "__EMPTY_3": "createPortal(child, container)",
+      "__EMPTY_4": "createRoot(el).render(<App />)",
+      "__EMPTY_5": "renderToString(<App />)"
+    },
+    {
+      "__EMPTY": "useStates",
+      "__EMPTY_1": "useState is a React Hook that allows components to persist data across renders. It triggers a UI update whenever its value changes by comparing the old and new memory references. It supports direct values, functional updates for stale data protection, and lazy initialization for performance-heavy tasks."
+    },
+    {
+      "__EMPTY": "Vite",
+      "__EMPTY_1": "Vite (French for \"fast\") is a modern frontend build tool designed to replace older, slower bundlers like Webpack. It significantly speeds up the development process by using a \"no-bundle\" approach during development—leveraging Native ES Modules (ESM) to serve files directly to the browser. In production, it uses Rollup to create a highly optimized, minified bundle of your code."
+    },
+    {
+      "__EMPTY_1": "key features and details"
+    },
+    {
+      "__EMPTY_1": "Feature",
+      "__EMPTY_2": "Details",
+      "__EMPTY_4": "Benefit"
+    },
+    {
+      "__EMPTY_1": "Instant Server Start",
+      "__EMPTY_2": "Uses esbuild (written in Go) to pre-bundle dependencies 10–100x faster than JS bundlers.",
+      "__EMPTY_4": "No more waiting for your dev server to start up."
+    },
+    {
+      "__EMPTY_1": "Hot Module Replacement (HMR)",
+      "__EMPTY_2": "Swaps updated modules without reloading the whole page or losing useState.",
+      "__EMPTY_4": "Near-instant feedback loop when you save a file."
+    },
+    {
+      "__EMPTY_1": "Native ESM Support",
+      "__EMPTY_2": "Serves source code over native ESM, letting the browser do the bundling work in dev.",
+      "__EMPTY_4": "Performance remains fast even as your project grows."
+    },
+    {
+      "__EMPTY_1": "Asset Optimization",
+      "__EMPTY_2": "Automatically handles image hashing, CSS code-splitting, and URL inlining.",
+      "__EMPTY_4": "Smaller production builds and better browser caching."
+    },
+    {
+      "__EMPTY_1": "Built-in Support",
+      "__EMPTY_2": "Native support for TypeScript, JSX, CSS Modules, and Tailwind CSS.",
+      "__EMPTY_4": "Zero-config setup for most modern React projects."
+    },
+    {
+      "__EMPTY_1": "Environment Variables",
+      "__EMPTY_2": "Uses import.meta.env instead of process.env for typed variables.",
+      "__EMPTY_4": "More secure and easier to manage in modern JS/TS."
+    },
+    {
+      "__EMPTY_1": "Production Bundling",
+      "__EMPTY_2": "Uses Rollup under the hood for sophisticated tree-shaking and multi-page support.",
+      "__EMPTY_4": "High-performance final code for your Node/Web server."
+    },
+    {
+      "__EMPTY": "Create-react-app",
+      "__EMPTY_1": "CRA is a CLI tool that sets up a React project with a single dependency: react-scripts. It is \"opinionated,\" meaning it makes all the configuration decisions for you. However, it has become much slower than Vite because it relies on Webpack, which bundles your entire application before the dev server can even start."
+    },
+    {
+      "__EMPTY_1": "Vite vs. react-scripts"
+    },
+    {
+      "__EMPTY_1": "Feature",
+      "__EMPTY_2": "react-scripts (CRA)",
+      "__EMPTY_3": "Vite"
+    },
+    {
+      "__EMPTY_1": "Underlying Engine",
+      "__EMPTY_2": "Webpack (JavaScript-based)",
+      "__EMPTY_3": "esbuild (Go-based)"
+    },
+    {
+      "__EMPTY_1": "Dev Startup",
+      "__EMPTY_2": "Slow: Bundles everything first.",
+      "__EMPTY_3": "Instant: Serves files via ESM."
+    },
+    {
+      "__EMPTY_1": "HMR Speed",
+      "__EMPTY_2": "Slower as the project grows.",
+      "__EMPTY_3": "Constant speed regardless of size."
+    },
+    {
+      "__EMPTY_1": "Configuration",
+      "__EMPTY_2": "Hidden (Must \"Eject\" to change).",
+      "__EMPTY_3": "Open and easy via vite.config.ts."
+    },
+    {
+      "__EMPTY_1": "Current Status",
+      "__EMPTY_2": "Deprecated / Maintenance only.",
+      "__EMPTY_3": "Recommended by React team."
+    },
+    {
+      "__EMPTY_1": "Env Variables",
+      "__EMPTY_2": "process.env.REACT_APP_",
+      "__EMPTY_3": "import.meta.env.VITE_"
+    },
+    {
+      "__EMPTY_1": "Production Bundling",
+      "__EMPTY_2": "Uses Rollup under the hood for sophisticated tree-shaking and multi-page support."
+    },
+    {
+      "__EMPTY": "esbuild",
+      "__EMPTY_1": "esbuild is an extremely fast JavaScript bundler and minifier written in Go. Its primary goal is to bring a new era of performance to frontend tooling. Unlike traditional bundlers (Webpack, Rollup) written in JavaScript, esbuild is compiled to native machine code, allowing it to perform 10x to 100x faster by utilizing parallelization and efficient memory management."
+    },
+    {
+      "__EMPTY_1": "Key Features & Details"
+    },
+    {
+      "__EMPTY_1": "Feature",
+      "__EMPTY_2": "Details",
+      "__EMPTY_3": "Benefit"
+    },
+    {
+      "__EMPTY_1": "Extreme Speed",
+      "__EMPTY_2": "Written in Go; bypasses the performance bottlenecks of the Node.js runtime.",
+      "__EMPTY_3": "Sub-second builds even for large projects."
+    },
+    {
+      "__EMPTY_1": "Native Parallelism",
+      "__EMPTY_2": "Fully utilizes all available CPU cores to process files in parallel.",
+      "__EMPTY_3": "Prevents \"bottlenecking\" on a single thread."
+    },
+    {
+      "__EMPTY_1": "TypeScript & JSX",
+      "__EMPTY_2": "Built-in support for transpiling .ts, .tsx, and .jsx without external plugins.",
+      "__EMPTY_3": "No need for Babel for standard syntax transformations."
+    },
+    {
+      "__EMPTY_1": "Tree Shaking",
+      "__EMPTY_2": "Automatically removes unused code from your final production bundle.",
+      "__EMPTY_3": "Resulting files are smaller and faster for users to download."
+    },
+    {
+      "__EMPTY_1": "Bundling & Minification",
+      "__EMPTY_2": "Combines multiple files into one and shrinks the code (removing whitespace/shortening variables).",
+      "__EMPTY_3": "Optimized \"Build\" output ready for production servers."
+    },
+    {
+      "__EMPTY_1": "Plugin API",
+      "__EMPTY_2": "Allows developers to hook into the build process (e.g., for specialized CSS handling).",
+      "__EMPTY_3": "Highly extensible if you need to go beyond standard JS/TS."
+    },
+    {
+      "__EMPTY_1": "Platform Agnostic",
+      "__EMPTY_2": "Can bundle code for the Browser (ESM) or Node.js (CommonJS).",
+      "__EMPTY_3": "A single tool for both your Frontend and Backend compilation."
+    },
+    {
+      "__EMPTY": "react hooks"
+    },
+    {
+      "__EMPTY_1": "Hook",
+      "__EMPTY_2": "Purpose",
+      "__EMPTY_3": "Basic Info",
+      "__EMPTY_4": "Best For...",
+      "__EMPTY_5": "Benefit"
+    },
+    {
+      "__EMPTY_1": "useState",
+      "__EMPTY_2": "Manage State",
+      "__EMPTY_3": "Returns a state value and a function to update it.",
+      "__EMPTY_4": "Simple values, toggles, input fields.",
+      "__EMPTY_5": "Simplest way to make components interactive."
+    },
+    {
+      "__EMPTY_1": "useEffect",
+      "__EMPTY_2": "Side Effects",
+      "__EMPTY_3": "Runs code after render based on a dependency array.",
+      "__EMPTY_4": "Node API calls, Sockets, Timers, Subscriptions.",
+      "__EMPTY_5": "Keeps sync with external systems (like your backend)."
+    },
+    {
+      "__EMPTY_1": "useContext",
+      "__EMPTY_2": "Global Data",
+      "__EMPTY_3": "Shares data through the tree without \"prop drilling.\"",
+      "__EMPTY_4": "Themes, User Auth, Language settings.",
+      "__EMPTY_5": "Avoids passing props through 10 layers of components."
+    },
+    {
+      "__EMPTY_1": "useReducer",
+      "__EMPTY_2": "Complex State",
+      "__EMPTY_3": "Manages state via \"Actions\" and a \"Reducer\" function.",
+      "__EMPTY_4": "Shopping carts, complex forms, Redux-style logic.",
+      "__EMPTY_5": "Centralizes logic; makes state changes predictable."
+    },
+    {
+      "__EMPTY_1": "useRef",
+      "__EMPTY_2": "Persistent Ref",
+      "__EMPTY_3": "Holds a value that doesn't trigger a re-render when changed.",
+      "__EMPTY_4": "Accessing DOM elements, storing setInterval IDs.",
+      "__EMPTY_5": "\"Secret storage\" that survives re-renders."
+    },
+    {
+      "__EMPTY_1": "useMemo",
+      "__EMPTY_2": "Memoize Value",
+      "__EMPTY_3": "Caches the result of an expensive calculation.",
+      "__EMPTY_4": "Filtering large arrays, heavy math transformations.",
+      "__EMPTY_5": "Prevents lagging by skipping unnecessary calculations."
+    },
+    {
+      "__EMPTY_1": "useCallback",
+      "__EMPTY_2": "Memoize Func",
+      "__EMPTY_3": "Caches a function definition between renders.",
+      "__EMPTY_4": "Passing functions to optimized child components.",
+      "__EMPTY_5": "Prevents child components from re-rendering for no reason."
+    },
+    {
+      "__EMPTY": "react-router-dom"
+    },
+    {
+      "__EMPTY_1": "Topic",
+      "__EMPTY_2": "Description",
+      "__EMPTY_3": "Code Example"
+    },
+    {
+      "__EMPTY_1": "BrowserRouter",
+      "__EMPTY_2": "The top-level wrapper that enables navigation features throughout your app. It syncs the UI with the URL.",
+      "__EMPTY_3": "<BrowserRouter> <App /> </BrowserRouter>"
+    },
+    {
+      "__EMPTY_1": "Routes & Route",
+      "__EMPTY_2": "Routes is the container that looks at the URL; Route defines the relationship between a URL path and a Component.",
+      "__EMPTY_3": "<Routes>\n\n <Route path=\"/\" element={<Home />} />\n\n</Routes>"
+    },
+    {
+      "__EMPTY_1": "Link & NavLink",
+      "__EMPTY_2": "Components used to navigate without refreshing the page. NavLink automatically adds an .active class for styling.",
+      "__EMPTY_3": "<Link to=\"/about\">About</Link>\n\n<NavLink to=\"/tasks\">Tasks</NavLink>"
+    },
+    {
+      "__EMPTY_1": "useParams",
+      "__EMPTY_2": "A hook to access dynamic segments of the URL (like IDs or usernames) within your component.",
+      "__EMPTY_3": "const { id } = useParams();\n\n// URL: /user/42 -> id is 42"
+    },
+    {
+      "__EMPTY_1": "useNavigate",
+      "__EMPTY_2": "A hook that returns a function for programmatic navigation (e.g., redirecting after a form submission).",
+      "__EMPTY_3": "const navigate = useNavigate();\n\nMaps('/dashboard');"
+    },
+    {
+      "__EMPTY_1": "Outlet",
+      "__EMPTY_2": "A placeholder component that renders the child route's element within a parent route's layout.",
+      "__EMPTY_3": "<div> <Navbar /> <Outlet /> </div>"
+    },
+    {
+      "__EMPTY_1": "index Route",
+      "__EMPTY_2": "A special prop on a child Route that makes it the default view when the user is at the parent path.",
+      "__EMPTY_3": "<Route index element={<Home />} />"
+    },
+    {
+      "__EMPTY_1": "useSearchParams",
+      "__EMPTY_2": "Used to read and modify the query string (the part after the ? in a URL). Works like useState.",
+      "__EMPTY_3": "const [search, setSearch] = useSearchParams();\n\nsearch.get('sort');"
+    },
+    {
+      "__EMPTY_1": "Maps (Component)",
+      "__EMPTY_2": "A component version of useNavigate. It is often used for redirects in \"Protected Routes.\"",
+      "__EMPTY_3": "<Navigate to=\"/login\" replace />"
+    },
+    {
+      "__EMPTY_1": "useLocation",
+      "__EMPTY_2": "Returns the current location object, containing the pathname, hash, and any \"state\" passed during navigation.",
+      "__EMPTY_3": "const location = useLocation();\n\nconsole.log(location.pathname);"
+    },
+    {
+      "__EMPTY_1": "Splat (*) Route",
+      "__EMPTY_2": "Used to catch any URL that doesn't match your defined routes—perfect for \"404 Not Found\" pages.",
+      "__EMPTY_3": "<Route path=\"*\" element={<NoPage />} />"
+    }
+  ]
+}
