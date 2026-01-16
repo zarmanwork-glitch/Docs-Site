@@ -1,0 +1,131 @@
+{
+  "navigation": [
+    {
+      "title": "React",
+      "icon": "react",
+      "basePath": "/docs/react",
+      "items": [
+        {
+          "title": "Getting Started",
+          "href": "/docs/react/getting-started"
+        },
+        {
+          "title": "Installation",
+          "href": "/docs/react/installation"
+        },
+        {
+          "title": "React Packages Overview",
+          "href": "/docs/react/packages-overview"
+        },
+        {
+          "title": "Components",
+          "href": "/docs/react/components"
+        },
+        {
+          "title": "Hooks",
+          "href": "/docs/react/hooks",
+          "items": [
+            {
+              "title": "useState",
+              "href": "/docs/react/usestate"
+            },
+            {
+              "title": "useEffect",
+              "href": "/docs/react/useeffect"
+            },
+            {
+              "title": "useContext",
+              "href": "/docs/react/usecontext"
+            },
+            {
+              "title": "useReducer",
+              "href": "/docs/react/usereducer"
+            },
+            {
+              "title": "useRef",
+              "href": "/docs/react/useref"
+            },
+            {
+              "title": "useMemo",
+              "href": "/docs/react/usememo"
+            },
+            {
+              "title": "useCallback",
+              "href": "/docs/react/usecallback"
+            }
+          ]
+        },
+        {
+          "title": "State Management",
+          "href": "/docs/react/state-management"
+        },
+        {
+          "title": "Vite Build Tool",
+          "href": "/docs/react/vite"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript",
+      "icon": "javascript",
+      "basePath": "/docs/javascript",
+      "items": [
+        {
+          "title": "Getting Started",
+          "href": "/docs/javascript/getting-started"
+        },
+        {
+          "title": "Fundamentals",
+          "href": "/docs/javascript/fundamentals"
+        },
+        {
+          "title": "ES6+ Features",
+          "href": "/docs/javascript/es6-features"
+        },
+        {
+          "title": "Async Programming",
+          "href": "/docs/javascript/async-programming"
+        }
+      ]
+    },
+    {
+      "title": "Node.js",
+      "icon": "nodejs",
+      "basePath": "/docs/nodejs",
+      "items": [
+        {
+          "title": "Getting Started",
+          "href": "/docs/nodejs/getting-started"
+        },
+        {
+          "title": "Core Engines",
+          "href": "/docs/nodejs/core-engines"
+        },
+        {
+          "title": "Event Loop & Execution",
+          "href": "/docs/nodejs/event-loop"
+        },
+        {
+          "title": "Island & Handshake Model",
+          "href": "/docs/nodejs/island-handshake"
+        },
+        {
+          "title": "Installation",
+          "href": "/docs/nodejs/installation"
+        },
+        {
+          "title": "API Reference",
+          "href": "/docs/nodejs/api-reference"
+        },
+        {
+          "title": "File System",
+          "href": "/docs/nodejs/file-system"
+        },
+        {
+          "title": "HTTP Server",
+          "href": "/docs/nodejs/http-server"
+        }
+      ]
+    }
+  ]
+}
